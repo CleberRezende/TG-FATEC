@@ -1,0 +1,149 @@
+
+
+
+CREATE TABLE Seguranca.Usuario(
+  cpf		VARCHAR(20) CONSTRAINT unq__USUARIO_CPF UNIQUE CONSTRAINT nn_USUARIO_CPF NOT NULL,
+  senha   VARCHAR(100) CONSTRAINT nn_USUARIO_SENHA NOT NULL,
+);
+
+CREATE SCHEMA Seguranca;
+
+SET SEARCH_PATH = Seguranca;
+
+
+
+--region - FUNCTION PROCEDURE INSERIR USUARIO  -------------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION Seguranca.inserirUsuario(
+                                                      pCpf   VARCHAR(20),
+                                                      pSenha VARCHAR(100),
+                                                    )
+  RETURNS JSON AS $$
+
+DECLARE
+  vRetException VARCHAR(1000);
+  vReturnId     VARCHAR(20);
+
+/*
+Documentação
+Arquivo Fonte.....: Seguranca.Usuario
+Objetivo..........: Inserir um novo usuario
+Autor.............: Cleber Spirlandeli
+Data..............: 01/02/2017
+Ex................: SELECT * FROM Seguranca.inserirUsuario('000.000.000.-00', '123321', 'cleber@engsolutions.com.br');
+*/
+
+
+BEGIN
+
+  INSERT INTO Seguranca.Usuario(
+                                  CPF,
+                                  SENHA,
+                                )
+  VALUES(
+          pCpf,
+          MD5(pSenha),
+        )
+  RETURNING cpf INTO vReturnId;
+
+  RETURN '{"result": "Usuario cadastrado com sucesso!", "CPF":"' || vReturnId || '", "code":0}';
+
+  EXCEPTION WHEN OTHERS
+  THEN
+    GET STACKED DIAGNOSTICS vRetException = MESSAGE_TEXT;
+    RETURN '{"result": ' || to_json(vRetException) || ', "code": 500}';
+END;
+$$
+LANGUAGE plpgsql;
+
+SELECT * FROM Seguranca.inserirUsuario('000.000.000.-00', '123321', 'cleber@engsolutions.com.br');
+--endregion
+
+
+
+--region - FUNCTION PROCEDURE LISTAR USUARIO POR ID  -------------------------------------------------------------------
+CREATE OR REPLACE Seguranca.listarUsuarioPorId  (
+                                                  pIdUsuario VARCHAR(100)
+                                                )
+RETURNS JSON AS $$
+
+DECLARE
+  vRetException VARCHAR(1000);
+
+/*
+Documentação
+Arquivo Fonte.....: Seguranca.Usuario
+Objetivo..........: Listar usuario pelo seu ID
+Autor.............: Cleber Spirlandeli
+Data..............: 01/02/2017
+Ex................: SELECT * FROM Seguranca.excluirUsuarioPorId('akAJ72d-jU0');
+*/
+
+BEGIN
+
+  SELECT  Seguranca.Usuario.cpf,
+          Seguranca.Usuario.senha
+  FROM Seguranca.Usuario
+  WHERE Seguranca.Usuario.cpf = pIdUsuario;
+
+  RETURN RESULT '{"result": "Usuario listado por ID com sucesso!", "code":0}';
+
+  EXEPCTION WHEN OTHERS
+  THEN
+    GET STACKED DIAGNOSTICS vRetException = MESSAGE_TEXT;
+    RETURN '{"result:" ' || to_json(vRetException) || ', "code":500}';
+END;
+$$
+LANGUAGE plpgsql;
+
+SELECT * FROM Seguranca.listarUsuarioPorId('akAJ72d-jU0');
+--endregion
+
+
+
+
+--region - FUNCTION PROCEDURE EXCLUIR USUARIO POR ID  ------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION Seguranca.excluirUsuarioPorId  (
+                                                            pIdUsuario VARCHAR (100)
+                                                          )
+DECLARE
+  vRetException VACHAR(1000);
+
+/*
+Documentação
+Arquivo Fonte.....: Seguranca.Usuario
+Objetivo..........: Excluir usuario pelo seu ID
+Autor.............: Cleber Spirlandeli
+Data..............: 01/02/2017
+Ex................: SELECT * FROM Seguranca.excluirUsuarioPorId('akAJ72d-jU0');
+*/
+
+BEGIN
+
+  DELETE FROM Seguranca.Usuario
+  WHERE Seguranca.Usuario.cpf = pIdUsuario;
+
+  RETURN '{"result": "Usuario removido com sucesso!", "code":0}';
+
+  EXCEPTION WHEN OTHERS
+  THEN
+    GET STAKED DIAGNOSTICS vRetException = MESSAGE_TEXT;
+    RETURN '{"result": ' || to_json(vRetException) ||', "code":500}';
+
+END;
+$$
+LANGUAGE plpgsql;
+
+SELECT * FROM Seguranca.excluirUsuarioPorId('akAJ72d-jU0');
+
+--endregion
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quero Combusta!</title>
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/style.css">
+</head>
+
+
+<body>
+<!--  MENU NAVEGACAO  -->
+<nav class="navbar navbar-inverse menu">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand glyphicon glyphicon-home" href="./principal.html"> HOME</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="./login.html">Cadastar<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Utilitários <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Perfil</a></li>
+                        <li><a href="#">Configurações</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Sair</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<section class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form>
+
+                <div class="form-group center-block input-login">
+                    <label for="nomeUsuario">CPF</label>
+                    <input type="text" class="form-control " id="nomeUsuario" placeholder="00.000.000-00" required>
+                </div>
+
+                <div class="form-group center-block input-login">
+                    <label for="senhaUsuario">Senha</label>
+                    <input type="password" class="form-control" id="senhaUsuario" placeholder="************" required
+                           minlength="6">
+                </div>
+
+                <a href="./principal.html"><button type="button" class="btn btn-lg btn-primary center-block"> Entrar ou Cadastrar</button></a>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<footer>
+
+    <div class="container">
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">-->
+                <!--<div class="embed-responsive embed-responsive-4by3 ">-->
+                    <!--<iframe class="embed-responsive-item"-->
+                            <!--src="https://maps.google.com/maps?q=Engenharia Solutions - R. Élvio Puci, 281 - Residencial Oswaldo Maciel, Franca - SP, Brasil, &t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div class="row">
+            <h2 id="contatos">Contato</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row cor_letra ">
+
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                <img src="./public/imagens/facebook.png" class="img-circle tamanho_imagem" alt="the-brains">
+                <br><br>
+                <address>
+                    <strong>Texto Texto</strong><br>
+                    Texto Texto Texto<br>
+                    Texto Texto Texto Texto Texto Texto<br>
+                    Texto <br>
+                    14406-785<br>
+                </address>
+            </div>
+
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 ">
+                <img src="http://oi60.tinypic.com/w8lycl.jpg" class="img-circle tamanho_imagem" alt="the-brains">
+                <br><br>
+                <strong>Texto Texto</strong><br>
+                Texto Texto Texto<br>
+                Texto Texto Texto Texto Texto Texto<br>
+                Texto <br>
+                14406-785<br>
+            </div>
+
+        </div>
+    </div>
+
+</footer>
+
+
+<script src="./public/js/jquery.min.js"></script>
+<script src="./public/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+<!--src="https://maps.google.co.uk/maps?f=q&source=s_q&hl=en&geocode=&q=15+Springfield+Way,+Hythe,+CT21+5SH&aq=t&sll=52.8382,-2.327815&sspn=8.047465,13.666992&ie=UTF8&hq=&hnear=15+Springfield+Way,+Hythe+CT21+5SH,+United+Kingdom&t=m&z=14&ll=51.077429,1.121722&output=embed"></iframe>-->
+
+
+<!--src="https://www.google.com.br/maps/place/Engenharia+Solutions/@-20.5486692,-47.4296056,18z/data=!4m13!1m7!3m6!1s0x94b0a7e78d044e21:0xde7d48aba88e5e0!2sR.+%C3%89lvio+Puci,+281+-+Res.+Oswaldo+Maciel,+Franca+-+SP,+14406-785!3b1!8m2!3d-20.5478605!4d-47.4299192!3m4!1s0x0:0x771f93013f9c5e99!8m2!3d-20.5488459!4d-47.4286209&output=embed"-->

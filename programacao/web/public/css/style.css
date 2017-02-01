@@ -1,0 +1,75 @@
+body {
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: #ECEFF1;
+}
+
+footer {
+    /*position: fixed;*/
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 10%;
+    height: 100%;
+    bottom: 0;
+    width: 100%;
+
+    /* Degrade fundo */
+    background: #000000;
+    background: -webkit-linear-gradient(#757575, #000000);
+    background: -o-linear-gradient(#757575, #000000);
+    background: -moz-linear-gradient(#757575, #000000);
+    background: linear-gradient(#757575, #000000);
+
+}
+
+.menu {
+    border-radius: 0;
+}
+
+.tamanho_imagem{
+    height:15%;
+    width: 15%;
+    margin-left: 7%;
+}
+/*
+
+#gmap_canvas {
+    map-embed.com
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+#mapouter {
+    overflow: hidden;
+    height: 70%;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+}
+*/
+
+iframe{
+    padding-top: 3.5%;
+}
+
+.cor_letra {
+    color: white;
+    padding-top: 3.5%;
+    margin: 0 auto;
+}
+
+
+#contatos{
+    color: white;
+    padding-top: 3.5%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.input-login{
+    width: 56%;
+}
